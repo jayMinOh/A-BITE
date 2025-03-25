@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.abite.backend.cm.mapper.MenuMapper">
+
+    <!-- ✅ 메뉴 트리 구조를 정의하는 ResultMap -->
+    <resultMap id="menuTree" type="com.abite.backend.cm.dto.MenuDTO">
+        <id property="menuId" column="MENU_ID"/>
+        <result property="parentMenuId" column="PARENT_MENU_ID"/>
+        <result property="multiLangId" column="MULTI_LANG_ID"/>
+        <result property="menuName" column="MENU_NAME"/>
+        <result property="menuType" column="MENU_TYPE"/>
+        <result property="menuOrder" column="MENU_ORDER"/>
+        <result property="linkUrl" column="LINK_URL"/>
+        <result property="visibleBuyer" column="VISIBLE_BUYER"/>
+        <result property="visibleSeller" column="VISIBLE_SELLER"/>
+        <result property="isMobile" column="IS_MOBILE"/>
+        <result property="isFavorite" column="IS_FAVORITE"/>
+        <result property="depth" column="DEPTH"/>
+        <result property="hierarchyOrder" column="HIERARCHY_ORDER"/>
+    </resultMap>
+
+    <select id="selectAllMenuList" parameterType="map" resultMap="menuTree">
+        WITH RECURSIVE MenuHierarchy AS (
+            -- 최상위 메뉴 (1뎁스)
+            SELECT
+                M.MENU_ID, M.PARENT_MENU_ID, M.MULTI_LANG_ID,
+                ML.MULTI_LANG_TXT AS MENU_NAME, M.MENU_TYPE, M.MENU_ORDER, M.LINK_URL,
+                M.VISIBLE_BUYER, M.VISIBLE_SELLER, M.IS_MOBILE,
+                CASE WHEN F.MENU_ID IS NOT NULL THEN 1 ELSE 0 END AS IS_FAVORITE,
+                1 AS DEPTH,
+                CAST(M.MENU_ORDER AS DECIMAL(10,2)) AS HIERARCHY_ORDER
+            FROM T_MENUS M
+                     LEFT JOIN T_LANGUAGES ML ON M.MULTI_LANG_ID = ML.MULTI_LANG_ID AND ML.LANG_TYPE = #{langType}
+                     LEFT JOIN T_FAVORITES F ON M.MENU_ID = F.MENU_ID AND F.MEMBER_NO = #{memberNo}
+            WHERE M.PARENT_MENU_ID IS NULL
+            UNION ALL
+            SELECT
+                M.MENU_ID, M.PARENT_MENU_ID, M.MULTI_LANG_ID,
+                ML.MULTI_LANG_TXT AS MENU_NAME, M.MENU_TYPE, M.MENU_ORDER, M.LINK_URL,
+                M.VISIBLE_BUYER, M.VISIBLE_SELLER, M.IS_MOBILE,
+                CASE WHEN F.MENU_ID IS NOT NULL THEN 1 ELSE 0 END AS IS_FAVORITE,
+                MH.DEPTH + 1,
+                MH.HIERARCHY_ORDER + (M.MENU_ORDER * POWER(10, -MH.DEPTH * 2)) AS HIERARCHY_ORDER
+            FROM T_MENUS M
+             JOIN MenuHierarchy MH ON M.PARENT_MENU_ID = MH.MENU_ID
+             LEFT JOIN T_LANGUAGES ML ON M.MULTI_LANG_ID = ML.MULTI_LANG_ID AND ML.LANG_TYPE = #{langType}
+             LEFT JOIN T_FAVORITES F ON M.MENU_ID = F.MENU_ID AND F.MEMBER_NO = #{memberNo}
+        )
+
+        SELECT * FROM MenuHierarchy ORDER BY HIERARCHY_ORDER;
+    </select>
+
+</mapper>

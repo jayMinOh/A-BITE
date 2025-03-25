@@ -1,0 +1,63 @@
+.main-content{
+  width: 100%;
+  top:40px;
+  position: relative;
+  overflow-x: hidden;
+}
+.slide-container {
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  top: 40px;
+  border-right: 2px solid rgb(2, 156, 228);
+  left: -180px; /* 기본적으로 숨겨진 상태 */
+  width: 240px;
+  padding-bottom: 160px;
+  background: rgb(2, 156, 228);
+  transition: left 0.3s ease; /* 슬라이드 효과 */
+}
+.slide-container.open {
+  left: 60px; /* 슬라이드된 위치 */
+}
+
+.slide-container h2.lnb-title {
+  padding-left: 10px;
+  width: 240px;
+  height: 40px;
+  line-height: 40px;
+  background: rgb(2, 156, 228);
+  font-size: 15px;
+  color: #ffffff;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.slide-container .level3-menu {
+  position: relative;
+}
+
+.slide-container .level3-menu li {
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  background: #fff;
+}
+
+.slide-container .level3-menu > li > button {
+  display: block;
+  padding: 0 40px 0 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #666;
+  font-weight: bold;
+  border: 0;
+}
+
+.slide-container .level3-menu li:hover {
+  background-color: rgb(9, 46, 109);
+  cursor: pointer;
+}
+
+.slide-container .level3-menu li:hover button {
+  color: #ffffff;
+}

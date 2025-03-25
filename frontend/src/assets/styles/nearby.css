@@ -1,0 +1,138 @@
+.leaflet-top {
+    top: 0;
+    left: auto !important;
+    right: 10px !important;
+}
+.nearby-content {
+    display: flex;
+}
+
+.map-info{
+    position: absolute;
+    z-index: 500;
+}
+
+.nearby-search-bar {
+    position: absolute;
+    width: 300px;
+    top: 42px;
+    height: calc(100vh - 430px);
+    box-shadow: 1px 1px 5px #1a1818;
+    left: 25px;
+    z-index: 45;
+    display: none;
+}
+
+.nearby-search-bar .nearby-search-bar-title {
+    padding: 20px 15px;
+    color: #fff;
+}
+
+.nearby-search-bar-content{
+    height: calc(100vh - 520px);
+    background-color: white;
+    overflow: auto;
+}
+
+.nearby-search-bar .nearby-nav-link.active {
+    color: #fff !important;
+    background-color: #313a46 !important;
+}
+
+.nearby-search-bar .nearby-nav-link {
+    color: #495057 !important;
+    border-color: #e9ecef #e9ecef #dee2e6;
+}
+
+.nearby-search-bar-toggle{
+    cursor: pointer;
+}
+
+.nearby-search-bar .nearby-search-bar-toggle {
+    position: absolute;
+    left: 250px;
+    top: 30px;
+    height: 24px;
+    width: 24px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: -4px;
+}
+
+.nearby-search-bar .nearby-container .row{
+    border-bottom: 1px solid #dee2e6;
+    height: 80px;
+    cursor: pointer;
+}
+
+.nearby-search-bar .nearby-container .row.active{
+    background-color: #fff1e6;
+}
+
+.nearby-search-bar .nearby-container .title{
+    margin-top: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 0px;
+    width: 185px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.nearby-search-bar .nearby-container .sub-title{
+    font-size: 14px;
+    width: 190px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: initial;
+}
+
+.sub-title:last-child{
+    padding-bottom: 5px;
+}
+
+.nearby-search-bar .nearby-container .row .col .btn{
+    line-height: 1 !important;
+    width: 60px;
+}
+
+.nearby-search-bar .nearby-container .plan-status{
+    position: absolute;
+    top: 5px;
+    left: 210px;
+}
+
+.nearby-search-bar .nearby-container .device-count{
+    position: absolute;
+    top: 40px;
+    left: 210px;
+}
+
+
+.nearby-search-bar .nearby-search-bar-device-list .row{
+    height: 100px !important;
+}
+
+.nearby-search-bar .input-group-append{
+    cursor: pointer;
+}
+
+.card-img-holder{
+    height: 100px;
+    margin-bottom: 5px;
+}
+
+.card-img-holder .card-body{
+    height: 100px;
+    padding: 0.5rem !important;
+}
+
+.card.card-img-holder .card-img-absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}

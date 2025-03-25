@@ -1,0 +1,37 @@
+{
+  "MENU_KR": [{
+    "menuId": 1,
+    "parentMenuId": null,
+    "multiLangId": "MENU_NEARBY",
+    "menuName": "내 위치 기반 조회",
+    "iconName": "fa-solid fa-location-dot",
+    "menuType": "PAGE",
+    "menuOrder": 1,
+    "linkUrl": "/nearby",
+    "visibleBuyer": true,
+    "visibleSeller": false,
+    "depth": 1,
+    "hierarchyOrder": 1,
+    "innerFlag": true,
+    "mobile": true,
+    "favorite": false
+  },{
+    "menuId": 2,
+    "parentMenuId": null,
+    "multiLangId": "MENU_GIT",
+    "menuName": "GitHub",
+    "iconName": "fa-brands fa-github",
+    "menuType": "PAGE",
+    "menuOrder": 1,
+    "linkUrl": "https://github.com/devbridge/jQuery-Autocomplete",
+    "visibleBuyer": true,
+    "visibleSeller": false,
+    "depth": 2,
+    "hierarchyOrder": 2,
+    "innerFlag": true,
+    "mobile": true,
+    "favorite": false
+  }
+  ],
+  "A": []
+}

@@ -1,0 +1,74 @@
+.form-wrapper{
+    width: 100%;
+}
+.form-wrapper .input-group {
+    margin: 8px auto;
+    position: relative;
+}
+
+.form-wrapper .input-group input{
+    height: 40px;
+    padding: 0 0 0 32px;
+    border-radius: 10px;
+}
+.form-wrapper .input-group input::placeholder{
+    color: #847786;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.form-wrapper .input-group input:focus{
+    outline: 1px solid #847786 ;
+    box-shadow: 0 0 8px 0 #847786;
+}
+.form-wrapper .input-group .fa{
+    position: absolute;
+    margin: 13px 0 0 10px;
+    color: #2f4858;
+}
+.form-wrapper .input-group .waring {
+    color: red;
+}
+
+.form-wrapper .input-group .waring {
+    color: red;
+}
+
+.form-wrapper .input-group .warning i.fa {
+    color: red;
+}
+
+.form-wrapper .input-group .warning input {
+    border: 1px solid red;
+}
+
+.form-wrapper .input-group .warning input:-moz-placeholder {
+    color: red;
+}
+.form-wrapper .input-group .warning input::-moz-placeholder {
+    color: red;
+}
+.form-wrapper .input-group .warning input:-ms-input-placeholder {
+    color: red;
+}
+.form-wrapper .input-group .warning input::-webkit-input-placeholder {
+    color: red;
+}
+.fa-google-icon {
+    /*background: linear-gradient(to right, #4285F4, #EA4335, #FBBC05, #34A853);*/
+    /*background: linear-gradient(45deg, #EA4335 25%, #FBBC05 50%, #34A853 75%, #4285F4 100%);*/
+    background: linear-gradient(180deg, #EA4335 0%, #EA4335 25%, #FBBC05 25%, #FBBC05 50%, #FBBC05 50% , #34A853 75%, #4285F4 100%);
+    /*background: linear-gradient(45deg,*/
+    /*#EA4335 0%, #EA4335 25%, !* 빨강 *!*/
+    /*#FBBC05 25%, #FBBC05 50%, !* 노랑 *!*/
+    /*#34A853 50%, #34A853 75%, !* 초록 *!*/
+    /*#4285F4 75%, #4285F4 100% !* 파랑 *!*/
+    /*);*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.fa-facebook-f:before{
+    color: #1877F2;;
+}
+.fa-linkedin-in:before {
+    color: #0077B5;
+}

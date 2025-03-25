@@ -1,0 +1,32 @@
+.right-container {
+    width: 60px;
+    background-color: #28539e;
+    height: 100dvh;
+}
+
+.left-header {
+    padding: 50px 16px 16px 0;
+}
+
+.left-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-link {
+    color: white;
+    text-decoration: none;
+}
+.right-container .left-header .left-menu > li a {
+    display: block;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    font-size: 0;
+}
+
+.right-container .left-header .left-menu > li a:hover{
+    background-color: #029ce4;
+}
+
