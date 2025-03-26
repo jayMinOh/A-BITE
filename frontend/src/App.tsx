@@ -44,7 +44,7 @@ const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={accessToken ? <Layout /> : <LoginSignup /> }>
+                <Route path="/" element={accessToken ? <Layout /> : <LoginSignup />} />
                     <Route index element={<Body loadedImages={loadedImages} />} />
                     <Route path="nearby" element={<Nearby />} />
                     <Route path="portfolio" element={<Portfolio />} />
