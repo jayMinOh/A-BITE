@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
 import { AuthContext } from "../store/AuthContext";
 
@@ -24,7 +24,7 @@ const fetchWithAuth = async (
         ...(body ? { body: JSON.stringify(body) } : {}),
     };
 
-    const response = await fetch(`${process.env.REACT_APP_API_URL}${url}`, options);
+    const response = await fetch(`${import.meta.env.VITE_API_URL}${url}`, options);
 
     if (response.status === 401) throw new Error("Unauthorized");
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -36,7 +36,7 @@ const refreshAccessToken = async (
     setAccessToken: React.Dispatch<React.SetStateAction<string | null>>,
     logout: () => void
 ): Promise<string> => {
-    const refreshResponse = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/refresh`, {
+    const refreshResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/refresh`, {
         method: "POST",
         credentials: "include",
     });
