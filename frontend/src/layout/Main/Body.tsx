@@ -5,7 +5,7 @@ import {useLoading} from "../../hooks/useLoading";  // 추가
 interface BodyProps {
     loadedImages: { [key: string]: string };
 }
-const Body = ({loadedImages}: BodyProps) => {
+const Body = ({loadedImages}: BodyProps)=> {
     const { setIsLoading } = useLoading();
     const images = [
         loadedImages["main_bg_1.jpeg"],
@@ -26,11 +26,11 @@ const Body = ({loadedImages}: BodyProps) => {
 
     useEffect(() => {
         startAutoSlide();
-        return () => clearTimeout(timeoutRef.current ?? undefined);
+        return () => clearTimeout(timeoutRef.current!);
     }, [currentIndex]);
 
     const startAutoSlide = () => {
-        clearTimeout(timeoutRef.current ?? undefined);
+        clearTimeout(timeoutRef.current!);
         timeoutRef.current = window.setTimeout(() => {
             nextSlide();
         }, 3000);

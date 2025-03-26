@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react";
+import {ReactElement, useEffect, useState} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./layout/Layout";
 import NotFound from "./layout/NotFound";
@@ -32,24 +32,21 @@ const App = () => {
             setLoadedImages(imageUrls);
         });
 
-        const token = accessToken || localStorage.getItem("accessToken");
+        const token = (accessToken ?? localStorage.getItem("accessToken")) ?? "";
+        setAccessToken(token);
 
-        if (token) {
-            setAccessToken(token);
-        } else {
-            // window.history.pushState("", "", `/`);
-        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
     return (
         <Router>
             <Routes>
-                <Route path="/" element={accessToken ? <Layout /> : <LoginSignup />} />
-                    <Route index element={<Body loadedImages={loadedImages} />} />
-                    <Route path="nearby" element={<Nearby />} />
-                    <Route path="portfolio" element={<Portfolio />} />
+                <Route path="/" element={(accessToken ? <Layout /> : <LoginSignup />) as ReactElement }>
+                    <Route index element={(<Body loadedImages={loadedImages} />) as ReactElement } />
+                    <Route path="nearby" element={(<Nearby />) as ReactElement } />
+                    <Route path="portfolio" element={(<Portfolio />) as ReactElement } />
                 </Route>
-                <Route path="*" element={<NotFound />} />
+                <Route path="*" element={(<NotFound />) as ReactElement } />
             </Routes>
         </Router>
     );
